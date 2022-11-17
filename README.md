@@ -4,7 +4,7 @@
 
 In this project, a web-based application is given, that reads RSS feeds. The testing tool used here is the [Jasmine testing suite](http://jasmine.github.io/).
 
-The starter code for this application can be found in the repo below:
+The starter code for the application can be found in this repo:
 [Feed Reader Testing starter code](https://github.com/udacity/frontend-nanodegree-feedreader)
 
 ## App Launch
