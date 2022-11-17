@@ -69,6 +69,7 @@ $(function() {
        * should have two expectations: does the menu display when
        * clicked and does it hide when clicked again.
        */
+
       it('menu display toggles when menu-icon is clicked', function() {
         const menuIcon = $('.menu-icon-link');
 
@@ -109,6 +110,7 @@ $(function() {
 
     })
 
+
     // A new test suite called New Feed Selection
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
@@ -117,9 +119,27 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
         */
-       it('ensures feed content changes', function() {
+        let feed = []
+        let newFeed = []
 
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                document.querySelectorAll('.entry h2').forEach(entry => {
+                    feed.push(entry.innerText)
+                })
+
+                loadFeed(1, function() {
+                    document.querySelectorAll('.entry h2').forEach(entry => {
+                        newFeed.push(entry.innerText)
+                    })
+                    done()
+                })
+            })
+
+        })
+
+       it('ensures different feeds', function() {
+            expect(feed).not.toBe(newFeed)
        })
     })
-
 }());
